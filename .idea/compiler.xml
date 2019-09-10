@@ -9,5 +9,8 @@
         <module name="mundi" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="mundi" target="10" />
+    </bytecodeTargetLevel>
   </component>
 </project>
