@@ -1,8 +1,19 @@
+# IntelliJ files
+.idea
+*.impl
+*.iml
+
+# Merge conflict files
+*.orig
+
 # Compiled class file
 *.class
 
 # Log file
 *.log
+
+# Maven target folder
+target/
 
 # BlueJ files
 *.ctxt
