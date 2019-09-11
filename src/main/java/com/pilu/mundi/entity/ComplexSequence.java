@@ -19,4 +19,8 @@ public class ComplexSequence {
     public List<Complex> getSequence() {
         return sequence;
     }
+
+    public int size() {
+        return sequence.size();
+    }
 }

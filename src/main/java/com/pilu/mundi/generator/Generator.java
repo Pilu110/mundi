@@ -15,12 +15,12 @@ public class Generator {
         this.endCondition = endCondition;
     }
 
-    ComplexSequence generate(Complex start) {
+    public ComplexSequence generate(Complex start) {
         Complex current = start;
         ComplexSequence sequence = new ComplexSequence();
         while(!endCondition.isEnded(current, sequence)) {
             sequence.add(current);
-            current = transformer.transform(current);
+            current = transformer.transform(current, sequence);
         }
 
         return sequence;
