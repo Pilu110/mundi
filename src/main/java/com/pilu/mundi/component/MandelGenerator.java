@@ -1,4 +1,4 @@
-package com.pilu.mundi.generator;
+package com.pilu.mundi.component;
 
 import com.pilu.mundi.behaviour.EndCondition;
 import com.pilu.mundi.behaviour.Transformer;
@@ -13,7 +13,7 @@ public class MandelGenerator extends Generator {
             }
         }, new EndCondition() {
             public boolean isEnded(Complex value, ComplexSequence sequence) {
-                return value.abs() > 2.0 || sequence.size() > 500;
+                return value.abs() > 2.0 || sequence.size() > 100;
             }
         });
     }
