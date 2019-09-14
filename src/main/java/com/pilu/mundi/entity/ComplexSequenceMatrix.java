@@ -18,4 +18,12 @@ public class ComplexSequenceMatrix {
   public ComplexSequence[][] getMatrix() {
     return matrix;
   }
+
+  public int getWidth() {
+    return matrix[0].length;
+  }
+
+  public int getHeight() {
+    return matrix.length;
+  }
 }

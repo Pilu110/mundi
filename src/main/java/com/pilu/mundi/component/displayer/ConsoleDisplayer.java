@@ -1,4 +1,4 @@
-package com.pilu.mundi.component;
+package com.pilu.mundi.component.displayer;
 
 import com.pilu.mundi.behaviour.Displayer;
 import com.pilu.mundi.entity.ComplexSequence;
