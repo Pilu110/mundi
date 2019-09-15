@@ -20,10 +20,10 @@ public class ComplexSequenceMatrix {
   }
 
   public int getWidth() {
-    return matrix[0].length;
+    return matrix.length;
   }
 
   public int getHeight() {
-    return matrix.length;
+    return matrix[0].length;
   }
 }

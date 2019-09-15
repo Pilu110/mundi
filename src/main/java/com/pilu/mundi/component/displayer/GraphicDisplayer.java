@@ -23,8 +23,8 @@ public class GraphicDisplayer implements Displayer {
 
         BufferedImage image = new BufferedImage(matrix.getWidth(), matrix.getHeight(), TYPE_INT_RGB);
 
-        for(int j=0; j<image.getHeight(); j++){
-            for(int i=0; i<image.getWidth(); i++) {
+        for(int j=0; j<matrix.getHeight(); j++){
+            for(int i=0; i<matrix.getWidth(); i++) {
                 image.setRGB(i, j, colorer.getColor(matrix.get(i,j)));
             }
         }
