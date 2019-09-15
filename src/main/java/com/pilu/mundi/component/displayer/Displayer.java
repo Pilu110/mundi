@@ -1,4 +1,4 @@
-package com.pilu.mundi.behaviour;
+package com.pilu.mundi.component.displayer;
 
 import com.pilu.mundi.entity.ComplexSequenceMatrix;
 

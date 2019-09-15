@@ -1,7 +1,7 @@
 package com.pilu.mundi.component;
 
 import com.pilu.mundi.entity.ComplexSequenceMatrix;
-import com.pilu.mundi.component.Generator;
+import com.pilu.mundi.component.generator.Generator;
 import org.apache.commons.math3.complex.Complex;
 
 public class Navigator {

@@ -1,7 +1,6 @@
 package com.pilu.mundi.component.displayer;
 
-import com.pilu.mundi.behaviour.Colorer;
-import com.pilu.mundi.behaviour.Displayer;
+import com.pilu.mundi.component.colorer.Colorer;
 import com.pilu.mundi.entity.ComplexSequenceMatrix;
 
 import javax.swing.*;

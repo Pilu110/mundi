@@ -1,4 +1,4 @@
-package com.pilu.mundi.component;
+package com.pilu.mundi.component.generator;
 
 import com.pilu.mundi.behaviour.EndCondition;
 import com.pilu.mundi.behaviour.Transformer;
