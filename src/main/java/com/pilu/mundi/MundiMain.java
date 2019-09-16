@@ -14,9 +14,9 @@ public class MundiMain {
 
 //    MandelGenerator mandelGenerator = new MandelGenerator();
 
-    JulieGenerator julieGenerator = new JulieGenerator();
+    JulieGenerator julieGenerator = new JulieGenerator(new Complex(-0.4,0.6));
 
-    Navigator navigator = new Navigator(julieGenerator, 0,0, 2.0 / 500, 700, 700);
+    Navigator navigator = new Navigator(julieGenerator, 0,0, 2.0 / 100, 500, 500);
 
     //ConsoleDisplayer consoleDisplayer = new ConsoleDisplayer();
     GraphicDisplayer graphicDisplayer = new GraphicDisplayer(new SequenceSizeColorer());
