@@ -26,4 +26,5 @@ public class ComplexSequenceMatrix {
   public int getHeight() {
     return matrix[0].length;
   }
+
 }
