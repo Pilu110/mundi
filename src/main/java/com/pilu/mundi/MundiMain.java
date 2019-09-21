@@ -12,14 +12,14 @@ import org.apache.commons.math3.complex.Complex;
 public class MundiMain {
   public static void main(String [] args) {
 
-//    MandelGenerator mandelGenerator = new MandelGenerator();
+    MandelGenerator mandelGenerator = new MandelGenerator();
 
-    JulieGenerator julieGenerator = new JulieGenerator(new Complex(-0.4,0.6));
+//    JulieGenerator julieGenerator = new JulieGenerator(new Complex(-0.4,0.6));
 
-    Navigator navigator = new Navigator(julieGenerator, 0,0, 2.0 / 100, 500, 500);
+    Navigator navigator = new Navigator(mandelGenerator, 0,0, 2.0 / 100, 500, 500);
 
     //ConsoleDisplayer consoleDisplayer = new ConsoleDisplayer();
-    GraphicDisplayer graphicDisplayer = new GraphicDisplayer(new SequenceSizeColorer());
+    GraphicDisplayer graphicDisplayer = new GraphicDisplayer(navigator, new SequenceSizeColorer());
 
     ComplexSequenceMatrix matrix = navigator.navigate();
     //consoleDisplayer.display(matrix);

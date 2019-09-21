@@ -1,18 +1,23 @@
 package com.pilu.mundi.component.displayer;
 
+import com.pilu.mundi.component.Navigator;
 import com.pilu.mundi.component.colorer.Colorer;
 import com.pilu.mundi.entity.ComplexSequenceMatrix;
 
 import javax.swing.*;
+import javax.swing.event.MouseInputAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
 import static java.awt.image.BufferedImage.TYPE_INT_RGB;
 
 public class GraphicDisplayer implements Displayer {
 
+    private final Navigator navigator;
     private final Colorer colorer;
 
-    public GraphicDisplayer(Colorer colorer) {
+    public GraphicDisplayer(Navigator navigator, Colorer colorer) {
+        this.navigator = navigator;
         this.colorer = colorer;
     }
 
@@ -41,5 +46,21 @@ public class GraphicDisplayer implements Displayer {
 
         frame.pack();
         frame.setVisible(true);
+
+        frame.addMouseListener(new MouseInputAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                System.out.println(e);
+                //todo navigator set origin
+            }
+        });
+
+        frame.addMouseMotionListener(new MouseInputAdapter() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                System.out.println(e);
+            }
+        });
+
     }
 }
