@@ -1,4 +1,4 @@
-package com.pilu.mundi.behaviour;
+package com.pilu.mundi.generator;
 
 import com.pilu.mundi.entity.ComplexSequence;
 import org.apache.commons.math3.complex.Complex;

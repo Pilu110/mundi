@@ -1,28 +1,18 @@
 package com.pilu.mundi;
 
-import com.pilu.mundi.component.colorer.SequenceSizeColorer;
-import com.pilu.mundi.component.generator.JulieGenerator;
-import com.pilu.mundi.component.generator.MandelGenerator;
-import com.pilu.mundi.component.Navigator;
+import com.pilu.mundi.ui.ViewPort;
+import com.pilu.mundi.ui.colorer.Colorer;
+import com.pilu.mundi.ui.colorer.SequenceSizeColorer;
+import com.pilu.mundi.generator.MandelGenerator;
 
-import com.pilu.mundi.component.displayer.GraphicDisplayer;
-import com.pilu.mundi.entity.ComplexSequenceMatrix;
-import org.apache.commons.math3.complex.Complex;
+import com.pilu.mundi.ui.GraphicUI;
 
 public class MundiMain {
   public static void main(String [] args) {
-
     MandelGenerator mandelGenerator = new MandelGenerator(8);
-
-//    JulieGenerator julieGenerator = new JulieGenerator(new Complex(-0.4,0.6));
-
-    Navigator navigator = new Navigator(mandelGenerator, 0,0, 2.0 / 100, 500, 500);
-
-    //ConsoleDisplayer consoleDisplayer = new ConsoleDisplayer();
-    GraphicDisplayer graphicDisplayer = new GraphicDisplayer(navigator, new SequenceSizeColorer(0.5f, 0.5f, 100));
-
-    ComplexSequenceMatrix matrix = navigator.navigate();
-    //consoleDisplayer.display(matrix);
-    graphicDisplayer.display(matrix);
+    ViewPort viewPort = new ViewPort(mandelGenerator, 0,0, 2.0 / 100, 500, 500);
+    Colorer colorer = new SequenceSizeColorer(0.5f, 0.5f, 100);
+    GraphicUI graphicUI = new GraphicUI(viewPort, colorer);
+    graphicUI.display();
   }
 }

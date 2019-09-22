@@ -1,10 +1,10 @@
-package com.pilu.mundi.component;
+package com.pilu.mundi.ui;
 
 import com.pilu.mundi.entity.ComplexSequenceMatrix;
-import com.pilu.mundi.component.generator.Generator;
+import com.pilu.mundi.generator.Generator;
 import org.apache.commons.math3.complex.Complex;
 
-public class Navigator {
+public class ViewPort {
 
     private final Generator generator;
     private double ox;
@@ -13,7 +13,7 @@ public class Navigator {
     private int height;
     private double scale;
 
-    public Navigator(Generator generator, double ox, double oy, double scale, int width, int height) {
+    public ViewPort(Generator generator, double ox, double oy, double scale, int width, int height) {
         this.generator = generator;
         this.ox = ox;
         this.oy = oy;
@@ -22,7 +22,7 @@ public class Navigator {
         this.height = height;
     }
 
-    public ComplexSequenceMatrix navigate() {
+    public ComplexSequenceMatrix render() {
 
         ComplexSequenceMatrix matrix = new ComplexSequenceMatrix(width, height);
 

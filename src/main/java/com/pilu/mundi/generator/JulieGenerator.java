@@ -1,4 +1,4 @@
-package com.pilu.mundi.component.generator;
+package com.pilu.mundi.generator;
 
 import org.apache.commons.math3.complex.Complex;
 

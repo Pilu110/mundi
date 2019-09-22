@@ -1,4 +1,4 @@
-package com.pilu.mundi.component.colorer;
+package com.pilu.mundi.ui.colorer;
 
 import com.pilu.mundi.entity.ComplexSequence;
 

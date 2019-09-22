@@ -1,9 +1,9 @@
-package com.pilu.mundi.component.displayer;
+package com.pilu.mundi.ui;
 
 import com.pilu.mundi.entity.ComplexSequence;
 import com.pilu.mundi.entity.ComplexSequenceMatrix;
 
-public class ConsoleDisplayer implements Displayer {
+public class ConsoleUI {
   public void display(ComplexSequenceMatrix matrix) {
     ComplexSequence[][] m = matrix.getMatrix();
     for(int j = 0; j < m.length; j++) {

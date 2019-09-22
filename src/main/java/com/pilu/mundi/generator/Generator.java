@@ -1,7 +1,5 @@
-package com.pilu.mundi.component.generator;
+package com.pilu.mundi.generator;
 
-import com.pilu.mundi.behaviour.EndCondition;
-import com.pilu.mundi.behaviour.Transformer;
 import com.pilu.mundi.entity.ComplexSequence;
 import org.apache.commons.math3.complex.Complex;
 

@@ -1,7 +1,6 @@
-package com.pilu.mundi.component.displayer;
+package com.pilu.mundi.ui;
 
-import com.pilu.mundi.component.Navigator;
-import com.pilu.mundi.component.colorer.Colorer;
+import com.pilu.mundi.ui.colorer.Colorer;
 import com.pilu.mundi.entity.ComplexSequenceMatrix;
 
 import javax.swing.*;
@@ -11,20 +10,20 @@ import java.awt.image.BufferedImage;
 
 import static java.awt.image.BufferedImage.TYPE_INT_RGB;
 
-public class GraphicDisplayer implements Displayer {
+public class GraphicUI {
 
-    private final Navigator navigator;
+    private final ViewPort viewPort;
     private final Colorer colorer;
 
-    public GraphicDisplayer(Navigator navigator, Colorer colorer) {
-        this.navigator = navigator;
+    public GraphicUI(ViewPort viewPort, Colorer colorer) {
+        this.viewPort = viewPort;
         this.colorer = colorer;
     }
 
-    @Override
-    public void display(ComplexSequenceMatrix matrix) {
+    public void display() {
         JPanel panel = new JPanel();
 
+        ComplexSequenceMatrix matrix = viewPort.render();
         BufferedImage image = new BufferedImage(matrix.getWidth(), matrix.getHeight(), TYPE_INT_RGB);
 
         for(int j=0; j<matrix.getHeight(); j++){
@@ -51,7 +50,7 @@ public class GraphicDisplayer implements Displayer {
             @Override
             public void mouseClicked(MouseEvent e) {
                 System.out.println(e);
-                //todo navigator set origin
+                //todo viewPort set origin
             }
         });
 

@@ -1,4 +1,4 @@
-package com.pilu.mundi.component.generator;
+package com.pilu.mundi.generator;
 
 public class MandelGenerator extends Generator {
     public MandelGenerator(int power) {
