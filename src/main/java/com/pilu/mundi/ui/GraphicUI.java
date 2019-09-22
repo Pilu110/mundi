@@ -5,7 +5,9 @@ import com.pilu.mundi.entity.ComplexSequenceMatrix;
 
 import javax.swing.*;
 import javax.swing.event.MouseInputAdapter;
+import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
 
 import static java.awt.image.BufferedImage.TYPE_INT_RGB;
@@ -15,9 +17,13 @@ public class GraphicUI {
     private final ViewPort viewPort;
     private final Colorer colorer;
 
+    private boolean hasMouseDrag;
+    private Point mouseDragStartingPoint;
+
     public GraphicUI(ViewPort viewPort, Colorer colorer) {
         this.viewPort = viewPort;
         this.colorer = colorer;
+        this.hasMouseDrag = false;
     }
 
     public void display() {
@@ -37,16 +43,51 @@ public class GraphicUI {
         panel.addMouseListener(new MouseInputAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println(e.getPoint());
-                viewPort.center(e.getPoint());
-                drawOnPanel(panel);
+                switch (e.getButton()) {
+                    case MouseEvent.BUTTON1 : {
+                        viewPort.center(e.getPoint());
+                        drawOnPanel(panel);
+                        break;
+                    }
+
+                    case MouseEvent.BUTTON2 : {
+                        viewPort.setOrigo(new Point2D.Double(0,0));
+                        viewPort.setScale(0.02);
+                        drawOnPanel(panel);
+                        break;
+                    }
+
+                    case MouseEvent.BUTTON3 : {
+                        viewPort.zoom(2);
+                        drawOnPanel(panel);
+                        break;
+                    }
+
+                }
             }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                if(e.getButton() == MouseEvent.BUTTON1) {
+                    mouseDragStartingPoint = e.getPoint();
+                }
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                if(hasMouseDrag && e.getButton() == MouseEvent.BUTTON1) {
+                    viewPort.zoomTo(mouseDragStartingPoint, e.getPoint());
+                    drawOnPanel(panel);
+                    hasMouseDrag = false;
+                }
+            }
+
         });
 
         panel.addMouseMotionListener(new MouseInputAdapter() {
             @Override
             public void mouseDragged(MouseEvent e) {
-                System.out.println(e);
+                hasMouseDrag = true;
             }
         });
     }

@@ -23,6 +23,23 @@ public class ViewPort {
         this.height = height;
     }
 
+    public void setOrigo(Point2D.Double origo) {
+        this.origo = origo;
+    }
+
+    public void setScale(double scale) {
+        this.scale = scale;
+    }
+
+    public void zoom(double zoom) {
+        scale *= zoom;
+    }
+
+    public void zoomTo(Point from, Point to) {
+        System.out.println("zoomto: " + from + ", " + to );
+        //TODO: implement
+    }
+
     public void center(Point point) {
         origo = new Point2D.Double(scale * ((double)point.x - width / 2.0) + origo.x,
                 scale * ((double)point.y - height / 2.0) + origo.y);
