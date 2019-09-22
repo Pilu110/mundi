@@ -22,7 +22,36 @@ public class GraphicUI {
 
     public void display() {
         JPanel panel = new JPanel();
+        drawOnPanel(panel);
+        // main window
+        JFrame.setDefaultLookAndFeelDecorated(true);
+        JFrame frame = new JFrame("Mundi Fractal Viewer");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        // add the Jpanel to the main window
+        frame.add(panel);
+
+        frame.pack();
+        frame.setVisible(true);
+
+        panel.addMouseListener(new MouseInputAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                System.out.println(e.getPoint());
+                viewPort.center(e.getPoint());
+                drawOnPanel(panel);
+            }
+        });
+
+        panel.addMouseMotionListener(new MouseInputAdapter() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                System.out.println(e);
+            }
+        });
+    }
+
+    private void drawOnPanel(JPanel panel) {
         ComplexSequenceMatrix matrix = viewPort.render();
         BufferedImage image = new BufferedImage(matrix.getWidth(), matrix.getHeight(), TYPE_INT_RGB);
 
@@ -32,34 +61,8 @@ public class GraphicUI {
             }
         }
 
-        JLabel label = new JLabel(new ImageIcon(image));
-        panel.add(label);
-
-        // main window
-        JFrame.setDefaultLookAndFeelDecorated(true);
-        JFrame frame = new JFrame("Results");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        // add the Jpanel to the main window
-        frame.add(panel);
-
-        frame.pack();
-        frame.setVisible(true);
-
-        frame.addMouseListener(new MouseInputAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                System.out.println(e);
-                //todo viewPort set origin
-            }
-        });
-
-        frame.addMouseMotionListener(new MouseInputAdapter() {
-            @Override
-            public void mouseDragged(MouseEvent e) {
-                System.out.println(e);
-            }
-        });
-
+        panel.removeAll();
+        panel.add(new JLabel(new ImageIcon(image)));
+        panel.updateUI();
     }
 }
