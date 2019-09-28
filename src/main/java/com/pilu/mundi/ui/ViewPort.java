@@ -36,8 +36,17 @@ public class ViewPort {
     }
 
     public void zoomTo(Point from, Point to) {
-        System.out.println("zoomto: " + from + ", " + to );
-        //TODO: implement
+
+        int width = to.x - from.x;
+        int height = to.y - from.y;
+
+        double zoomX = (double)width / (double)this.width;
+        double zoomY = (double)height / (double)this.height;
+
+        double zoom = zoomX > zoomY ? zoomX : zoomY;
+
+        center(new Point(from.x + width/2, from.y + height/2));
+        zoom(zoom);
     }
 
     public void center(Point point) {
