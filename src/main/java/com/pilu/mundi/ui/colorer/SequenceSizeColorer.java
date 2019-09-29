@@ -18,6 +18,6 @@ public class SequenceSizeColorer implements Colorer {
 
     @Override
     public int getColor(ComplexSequence sequence) {
-        return Color.HSBtoRGB(hue, saturation, (float)sequence.size() / (float)max);
+        return Color.HSBtoRGB(hue, saturation, (float) Math.sqrt((float)sequence.size() / (float)max));
     }
 }
