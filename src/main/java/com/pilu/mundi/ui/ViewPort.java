@@ -3,6 +3,7 @@ package com.pilu.mundi.ui;
 import java.awt.Point;
 import java.awt.geom.Point2D;
 
+import com.pilu.mundi.entity.ComplexSequence;
 import com.pilu.mundi.entity.ComplexSequenceMatrix;
 import com.pilu.mundi.generator.Generator;
 import org.apache.commons.math3.complex.Complex;
@@ -54,6 +55,13 @@ public class ViewPort {
                 scale * ((double)point.y - height / 2.0) + origo.y);
     }
 
+    private Point getViewPoint(Complex n) {
+        return new Point(
+            (int)Math.round((n.getReal() - origo.x) / scale  + width / 2.0),
+            (int)Math.round((n.getImaginary() - origo.y) / scale + height / 2.0)
+        );
+    }
+
     public ComplexSequenceMatrix render() {
 
         ComplexSequenceMatrix matrix = new ComplexSequenceMatrix(width, height);
@@ -68,6 +76,20 @@ public class ViewPort {
             }
         }
 
-        return matrix;
+        return density(matrix);
+    }
+
+    private ComplexSequenceMatrix density(ComplexSequenceMatrix matrix) {
+        ComplexSequenceMatrix density = new ComplexSequenceMatrix(width, height);
+        for(int j = 0; j< height; j++) {
+            for(int i = 0; i < width; i++) {
+                for(Complex p : matrix.get(i,j).getSequence()){
+                    Point vp = getViewPoint(p);
+                    density.add(vp.x, vp.y, p);
+                }
+            }
+        }
+
+        return density;
     }
 }

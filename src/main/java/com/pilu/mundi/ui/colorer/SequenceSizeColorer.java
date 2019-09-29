@@ -8,16 +8,25 @@ public class SequenceSizeColorer implements Colorer {
 
     private float hue;
     private float saturation;
-    private int max;
 
-    public SequenceSizeColorer(float hue, float saturation, int max) {
+    public SequenceSizeColorer(float hue, float saturation) {
         this.hue = hue;
         this.saturation = saturation;
-        this.max = max;
     }
 
     @Override
-    public int getColor(ComplexSequence sequence) {
-        return Color.HSBtoRGB(hue, saturation, (float) Math.sqrt((float)sequence.size() / (float)max));
+    public int getColor(ComplexSequence sequence, int max) {
+
+        if(sequence == null) {
+            return Color.BLACK.getRGB();
+        }
+
+        float brightness = (float) Math.sqrt((float)sequence.size() / (float)max);
+
+        if(brightness > 1.0) {
+            brightness = 1.0f;
+        }
+
+        return Color.HSBtoRGB(hue, saturation, brightness);
     }
 }

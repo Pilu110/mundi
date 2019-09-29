@@ -96,9 +96,11 @@ public class GraphicUI {
         ComplexSequenceMatrix matrix = viewPort.render();
         BufferedImage image = new BufferedImage(matrix.getWidth(), matrix.getHeight(), TYPE_INT_RGB);
 
+        int maxSize = matrix.getMaxSize();
+
         for(int j=0; j<matrix.getHeight(); j++){
             for(int i=0; i<matrix.getWidth(); i++) {
-                image.setRGB(i, j, colorer.getColor(matrix.get(i,j)));
+                image.setRGB(i, j, colorer.getColor(matrix.get(i,j), maxSize));
             }
         }
 
