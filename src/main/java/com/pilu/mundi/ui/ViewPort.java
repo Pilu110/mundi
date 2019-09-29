@@ -76,7 +76,7 @@ public class ViewPort {
             }
         }
 
-        return density(matrix);
+        return matrix;
     }
 
     private ComplexSequenceMatrix density(ComplexSequenceMatrix matrix) {
