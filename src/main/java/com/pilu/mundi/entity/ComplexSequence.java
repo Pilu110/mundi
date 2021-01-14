@@ -26,8 +26,8 @@ public class ComplexSequence {
         return getFromLast(0);
     }
 
-    public Complex getFromLast(int i) {
-        return sequence.get(sequence.size() - 1 - i);
+    public Complex getFromLast(int index) {
+        return sequence.get(sequence.size() - 1 - index);
     }
 
     public Complex get(int index) {
