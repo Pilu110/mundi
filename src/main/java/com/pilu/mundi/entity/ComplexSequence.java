@@ -7,10 +7,11 @@ import java.util.List;
 
 public class ComplexSequence {
 
+    private final Complex base;
     private final List<Complex> sequence = new ArrayList<Complex>();
 
     public ComplexSequence(Complex base) {
-        sequence.add(base);
+        this.base = base;
     }
 
     public void add(Complex value) {
@@ -18,7 +19,15 @@ public class ComplexSequence {
     }
 
     public Complex getBase() {
-        return sequence.get(0);
+        return base;
+    }
+
+    public Complex getLast() {
+        return getFromLast(0);
+    }
+
+    public Complex getFromLast(int i) {
+        return sequence.get(sequence.size() - 1 - i);
     }
 
     public Complex get(int index) {

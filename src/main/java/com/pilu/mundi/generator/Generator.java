@@ -17,7 +17,7 @@ public class Generator {
         ComplexSequence sequence = new ComplexSequence(base);
 
         Complex current = base;
-        while(!endCondition.isEnded(current, sequence)) {
+        while(!endCondition.isEnded(sequence)) {
             current = transformer.transform(current, sequence);
             sequence.add(current);
         }
