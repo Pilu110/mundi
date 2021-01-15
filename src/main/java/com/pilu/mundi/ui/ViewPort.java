@@ -53,6 +53,8 @@ public class ViewPort {
     public void center(Point point) {
         origo = new Point2D.Double(scale * ((double)point.x - width / 2.0) + origo.x,
                 scale * ((double)point.y - height / 2.0) + origo.y);
+
+        System.out.println("Origo: " + origo);
     }
 
     private Point getViewPoint(Complex n) {

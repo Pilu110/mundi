@@ -16,15 +16,15 @@ public class DomainColorer implements Colorer {
     }
 
     @Override
-    public int getColor(ComplexSequence sequence, int max) {
-        return getDomainColor(sequence.getLast());
+    public int getColor(ComplexSequence sequence, int maxSize) {
+        return getDomainColor(sequence.size() > 0 ? sequence.getLast() : sequence.getBase(), sequence.size() == maxSize);
     }
 
-    private int getDomainColor(Complex complex) {
+    private int getDomainColor(Complex complex, boolean hasMaxSize) {
         double im = complex.getImaginary();
         double re = complex.getReal();
         double r = Math.sqrt(re*re + im*im);
-        return Color.getHSBColor((float)(Math.atan2(im, re) / (2 * Math.PI)),1.0f, (float)((r / lightScale + lightOffset) % 1.0)).getRGB();
+        return Color.getHSBColor((float)(Math.atan2(im, re) / (2 * Math.PI)),1.0f, hasMaxSize ? 1.0f : ((float)((r / lightScale + lightOffset) % 1.0))).getRGB();
     }
 
 }

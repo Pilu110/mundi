@@ -23,9 +23,9 @@ public class MundiMain {
     //JulieGenerator julieGenerator = new JulieGenerator(new Complex(0.5,0.4));
     ZetaGenerator zetaGenerator = new ZetaGenerator();
 
-    ViewPort viewPort = new ViewPort(zetaGenerator, new Point2D.Double(0,0), 0.1, 400, 400);
+    ViewPort viewPort = new ViewPort(zetaGenerator, new Point2D.Double(0,0), 0.01, 400, 400);
     //Colorer colorer = new SequenceSizeColorer(0.15f, 0.1f);
-    Colorer colorer = new DomainColorer(20, 0);
+    Colorer colorer = new DomainColorer(200, 0);
 //    M2Generator mandelGenerator = new M2Generator(3,2);
 //    ViewPort viewPort = new ViewPort(mandelGenerator, new Point2D.Double(0,0), 4.0 / 800, 600, 600);
     //Colorer colorer = new SequenceSizeColorer(0.15f, 0.9f);
